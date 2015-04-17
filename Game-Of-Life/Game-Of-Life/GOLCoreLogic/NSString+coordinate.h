@@ -5,6 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
+@interface NSString (coordinate)
 
-@interface GOLLiveCell : NSObject
++ (NSString *)stringFromCoordinateX:(NSNumber *)x y:(NSNumber *)y;
+
 @end

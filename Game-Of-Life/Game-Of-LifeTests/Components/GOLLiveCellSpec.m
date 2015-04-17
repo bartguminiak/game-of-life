@@ -4,23 +4,42 @@
 //
 
 #import "GOLSpecHelper.h"
+#import "GOLCell.h"
+#import "GOLCell+comparison.h"
+#import "NSString+coordinate.h"
 
-SpecBegin(DOCDoctorProfileServicesViewModel)
+SpecBegin(GOLCell)
 
-    describe(@"servicesViewModel", ^{});
+    describe(@"GOLCell tests", ^{});
 
-    it(@"TEST", ^{
-        int a = 5;
-        expect(a).to.equal(5);
+
+    __block GOLCell *liveCell;
+    it(@"creation", ^{
+        liveCell = [GOLCell new];
+        expect(liveCell).notTo.beNil();
     });
-//beforeEach(^{
-//servicesViewModel = [[DOCDoctorProfileServicesViewModel alloc] initWithDoctor:doctor];
-//});
 
-//it(@"Number of rows for header", ^{
-//expect(servicesViewModel.numberOfRowsHeader).to.equal(1);
-//});
+    it(@"creation with coordinates", ^{
+        liveCell = [[GOLCell alloc] initWithCoordinatesX:@5 y:@6 statusAlive:YES];
+        expect(liveCell.x).to.equal(@5);
+        expect(liveCell.y).to.equal(@6);
+    });
 
+    it(@"cell comparison check are different", ^{
+        liveCell = [[GOLCell alloc] initWithCoordinatesX:@3 y:@4 statusAlive:YES];
+        GOLCell *otherAliveCell = [[GOLCell alloc] initWithCoordinatesX:@4 y:@5 statusAlive:YES];
+
+        BOOL areDifferent = [liveCell isEqualToOtherCell:otherAliveCell];
+        expect(areDifferent).to.beFalsy();
+    });
+
+    it(@"cell comparison are the same", ^{
+        liveCell = [[GOLCell alloc] initWithCoordinatesX:@3 y:@4 statusAlive:YES];
+        GOLCell *otherAliveCell = [[GOLCell alloc] initWithCoordinatesX:@3 y:@4 statusAlive:YES];
+
+        BOOL areDifferent = [liveCell isEqualToOtherCell:otherAliveCell];
+        expect(areDifferent).to.beTruthy();
+    });
 
 
 SpecEnd
