@@ -10,6 +10,10 @@
 
 @interface ViewController : UIViewController
 
+typedef struct {
+    NSInteger x;
+    NSInteger y;
+} Coordinate;
 
 @end
 
