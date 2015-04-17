@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+static const NSUInteger grid_x = 11;
+static const NSUInteger grid_y = 11;
+
 @interface ViewController ()
 
 @end
@@ -16,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     [self drawBoardWithGrid];
 }
 
@@ -64,11 +66,41 @@
 {
     return .5f;
 }
+
+#pragma mark - Set offset
+
+- (NSInteger)offsetX:(NSInteger)x
+{
+    x = x + grid_x/2;
+    return x;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)offsetY:(NSInteger)y
+{
+    y = y + grid_y/2;
+    return y;
+}
+
+#pragma mark - Mappers for point
+
+- (NSInteger)indexForSubviewFromCoordinate:(Coordinate)coordinate
+{
+    coordinate.x = [self offsetX:coordinate.x];
+    coordinate.y = [self offsetY:coordinate.y];
+    return coordinate.x + coordinate.y * grid_x;
+}
+
+#pragma mark - Drawing
+
+- (void)makeCellAlive:(BOOL)alive atIndex:(NSInteger)index
+{
+    UIView *cellView = self.view.subviews[index + 2];
+    cellView.backgroundColor = [self colorAlive:alive];
+}
+
+- (UIColor *)colorAlive:(BOOL)alive
+{
+    return alive ? [UIColor redColor] : [UIColor grayColor];
 }
 
 @end

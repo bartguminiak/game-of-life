@@ -15,5 +15,8 @@ typedef struct {
     NSInteger y;
 } Coordinate;
 
+- (NSInteger)indexForSubviewFromCoordinate:(Coordinate)coordinate;
+- (void)makeCellAlive:(BOOL)alive atIndex:(NSInteger)index;
+
 @end
 
