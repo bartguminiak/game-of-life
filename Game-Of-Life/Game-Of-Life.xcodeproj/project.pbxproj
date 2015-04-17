@@ -13,8 +13,7 @@
 		065C8CC51AE07E2A00B33F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 065C8CC31AE07E2A00B33F24 /* Main.storyboard */; };
 		065C8CC71AE07E2A00B33F24 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 065C8CC61AE07E2A00B33F24 /* Images.xcassets */; };
 		065C8CCA1AE07E2A00B33F24 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 065C8CC81AE07E2A00B33F24 /* LaunchScreen.xib */; };
-		2210C64F2D8C19886759CDC2 /* GOLLiveBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210C8CFDD90403CCF1AE4BA /* GOLLiveBoard.m */; };
-		2210C84E72E26544F3B3245B /* GOLLiveBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210C8CFDD90403CCF1AE4BA /* GOLLiveBoard.m */; };
+		2210C73B98066F973FCD2C26 /* GOLLiveCellSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210C033DE6DB189D9FAF42C /* GOLLiveCellSpec.m */; };
 		2210CB56FA29591FAC2941B9 /* GOLLiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210C673739A84D2857E2337 /* GOLLiveCell.m */; };
 		2210CCEBF172EEED7A2B87F4 /* GOLLiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210C673739A84D2857E2337 /* GOLLiveCell.m */; };
 		9FBEB6B6D884C8E259C3B0E8 /* libPods-Game-Of-LifeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD580ED0D016C6D31D169611 /* libPods-Game-Of-LifeTests.a */; };
@@ -44,9 +43,9 @@
 		065C8CC91AE07E2A00B33F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		065C8CCF1AE07E2A00B33F24 /* Game-Of-LifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Game-Of-LifeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		065C8CD41AE07E2A00B33F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2210C033DE6DB189D9FAF42C /* GOLLiveCellSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOLLiveCellSpec.m; sourceTree = "<group>"; };
 		2210C673739A84D2857E2337 /* GOLLiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOLLiveCell.m; sourceTree = "<group>"; };
-		2210C75EC45ACCB3CDB882C2 /* GOLLiveBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOLLiveBoard.h; sourceTree = "<group>"; };
-		2210C8CFDD90403CCF1AE4BA /* GOLLiveBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOLLiveBoard.m; sourceTree = "<group>"; };
+		2210CAA22D136153008357F0 /* GOLSpecHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOLSpecHelper.h; sourceTree = "<group>"; };
 		2210CEA9914AE09D139772AA /* GOLLiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOLLiveCell.h; sourceTree = "<group>"; };
 		2E1D13F20B76431699523242 /* Pods-Game-Of-Life.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Game-Of-Life.release.xcconfig"; path = "Pods/Target Support Files/Pods-Game-Of-Life/Pods-Game-Of-Life.release.xcconfig"; sourceTree = "<group>"; };
 		8C10540CA357C7B5A3ADAF31 /* libPods-Game-Of-Life.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Game-Of-Life.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +125,7 @@
 			children = (
 				065C8CD31AE07E2A00B33F24 /* Supporting Files */,
 				2210C1E44B78E4E86E6F0D1B /* Components */,
+				2210CAA22D136153008357F0 /* GOLSpecHelper.h */,
 			);
 			path = "Game-Of-LifeTests";
 			sourceTree = "<group>";
@@ -141,6 +141,7 @@
 		2210C1E44B78E4E86E6F0D1B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2210C033DE6DB189D9FAF42C /* GOLLiveCellSpec.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -148,8 +149,6 @@
 		2210CEFE198DDFA73BFC5449 /* GOLCoreLogic */ = {
 			isa = PBXGroup;
 			children = (
-				2210C8CFDD90403CCF1AE4BA /* GOLLiveBoard.m */,
-				2210C75EC45ACCB3CDB882C2 /* GOLLiveBoard.h */,
 				2210C673739A84D2857E2337 /* GOLLiveCell.m */,
 				2210CEA9914AE09D139772AA /* GOLLiveCell.h */,
 			);
@@ -346,7 +345,6 @@
 				065C8CC21AE07E2A00B33F24 /* ViewController.m in Sources */,
 				065C8CBF1AE07E2A00B33F24 /* AppDelegate.m in Sources */,
 				065C8CBC1AE07E2A00B33F24 /* main.m in Sources */,
-				2210C64F2D8C19886759CDC2 /* GOLLiveBoard.m in Sources */,
 				2210CB56FA29591FAC2941B9 /* GOLLiveCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,8 +353,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2210C84E72E26544F3B3245B /* GOLLiveBoard.m in Sources */,
 				2210CCEBF172EEED7A2B87F4 /* GOLLiveCell.m in Sources */,
+				2210C73B98066F973FCD2C26 /* GOLLiveCellSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
